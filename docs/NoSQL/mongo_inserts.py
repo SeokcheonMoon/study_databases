@@ -18,4 +18,6 @@ collection = database["fruits"]
 collection.insert_one({"name": "오렌지", "color": "주황", "origin": "미국", "price": "2500"})
 
 
+dict_fruit = {"name": "포도", "color": "보라", "origin": "미국", "price": "3000"}
+collection.insert_one(dict_fruit)
 pass
