@@ -1,21 +1,21 @@
-# function 2개 만들기(불러오기, 값 도출하기)
+# function 2개 만들기(connect, insert)
 
-#database connect function
+#function 1 : mongo DB에 연결
 
 def connect() :
 
     from pymongo import MongoClient
 
-    mongoclient = MongoClient("mongodb://localhost:27017")     # mongoDB에 접속
+    mongoclient = MongoClient("mongodb://localhost:27017")     # mongoDB 접속 설정
 
-    database = mongoclient["local"]                            # database 생성 및 연결
+    database = mongoclient["local"]                            # 작업 database 설정
 
-    collection = database["fruits_info"]                       # collection에 작업
+    collection = database["fruits_info"]                       # 작업 collection 설정
 
     return collection
 
 
-#database insert function
+#function 2 : list를 호출
 
 def insert() :
     list_fruits = [
@@ -27,14 +27,13 @@ def insert() :
     return list_fruits
 
 
-
 collection = connect()
 list_fruits = insert()
 
+# mongo DB(function 1)에 list_fruits(function 2)를 적용.
 
-
-for x in [0,1,2,3] :
-    collection.insert_one(list_fruits[x])
+for number in [0,1,2,3] :
+    collection.insert_one(list_fruits[number])
 
 
 
