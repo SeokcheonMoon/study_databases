@@ -6,11 +6,11 @@ def connect() :
 
     from pymongo import MongoClient
 
-    mongoclient = MongoClient("mongodb://localhost:27017")
+    mongoclient = MongoClient("mongodb://localhost:27017")     # mongoDB에 접속
 
-    database = mongoclient["local"]
+    database = mongoclient["local"]                            # database 생성 및 연결
 
-    collection = database["fruits_info"]
+    collection = database["fruits_info"]                       # collection에 작업
 
     return collection
 
@@ -30,6 +30,8 @@ def insert() :
 
 collection = connect()
 list_fruits = insert()
+
+
 
 for x in [0,1,2,3] :
     collection.insert_one(list_fruits[x])
