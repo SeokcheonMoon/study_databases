@@ -1,0 +1,7 @@
+_id,title,body,category,likes,tags[0],tags[1],date,new_id
+657a8e08e8253bf80c94f434,Post Title 2,Body of post.,Tech,103,news,events,Thu Dec 14 2023 14:09:28 GMT+0900 (한국 표준시),
+657a8e08e8253bf80c94f435,Post Title 3,update Post,Technology,1,news,events,Thu Dec 14 2023 16:19:08 GMT+0900 (한국 표준시),45
+657a8e08e8253bf80c94f436,Post Title 4,Body of post.,Market,105,news,events,Thu Dec 14 2023 14:09:28 GMT+0900 (한국 표준시),
+657a9c8ce8253bf80c94f437,Post Title 2,Body of post.,Event,2,news,events,Thu Dec 14 2023 15:11:24 GMT+0900 (한국 표준시),
+657a9c8ce8253bf80c94f438,Post Title 3,update Post,Technology,1,news,events,Thu Dec 14 2023 16:19:08 GMT+0900 (한국 표준시),45
+657a9c8ce8253bf80c94f439,Post Title 4,Body of post.,Event,4,news,events,Thu Dec 14 2023 15:11:24 GMT+0900 (한국 표준시),
