@@ -1,8 +1,5 @@
-db.posts.insertMany([{choices: input() .}])
+import solvingProblem_functions
 
-
-#문제 풀기 코드
-
-
-# 문제 리스트 정답 리스트 작성
-
+collection = solvingProblem_functions.connect()
+solvingProblem_functions.insert()
+solvingProblem_functions.solve()
