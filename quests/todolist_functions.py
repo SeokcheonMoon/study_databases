@@ -80,8 +80,7 @@ while True :
     title = input("타이틀 번호 : ")
     ending = input("종료 여부 : ")
 
-    collection_participants_todos.insert_many([{"user_name" : user_name},{"title" : title}, {"ending" : ending }])
- 
+    collection_participants_todos.insert_many([{"user_name" : user_name },{"title" : title }, {"ending" : ending }])
 
     if ending == "q" :
         break
