@@ -63,24 +63,35 @@ collection_participants_todos = participants_todos()
 # collection_participants.insert_many(list_participants)
 # collection_participants_todos.insert_many(list_participants_todos)
 
-list_find = list(collection_todos_list.find())
+find_list = list(collection_todos_list.find())
+find_participant = list(collection_participants.find())
+find_participant_todos = list(collection_participants_todos.find())
 
 while True :
 
     user_name = input("Input Your Name : ")
     print("ToDo List 중 하나 선택 하세요 !")
-    collection_participants.insert_one({"user_name": user_name}) #---------------------------------------------------------key
-    user_id = collection_participants["_id"]
+    get_names_id = collection_participants.insert_one({"user_name": user_name}) #---------------------------------------------------------key
+    user_id = get_names_id.inserted_id
     
 
-    for number in range(len(list_find)) : 
+    for number in range(len(find_list)) : 
 
-        print("{}.{}".format(number + 1, list_find[number]["title"]))
+        print("{}.{}".format(number + 1, find_list[number]["title"]))
 
     title = input("타이틀 번호 : ")
     ending = input("종료 여부 : ")
 
-    collection_participants_todos.insert_many([{"user_name" : user_name },{"title" : title }, {"ending" : ending }])
+    # collection_participants_todos.insert_one({"user_id" : user_id})
+    collection_participants_todos.insert_one({"user_id" : user_id})
+    collection_participants_todos.update_one({"user_id" : user_id}, {"$set":{"title" : title}})
+    collection_participants_todos.update_one({"user_id" : user_id}, {"$set":{"ending" : ending}})
 
     if ending == "q" :
         break
+    
+print("------------------------")
+print("프로그램이 종료되었습니다.")
+
+
+# db.posts.updateOne( { title: "Post Title 1" }, { $set: { likes: 2 } } ) 
