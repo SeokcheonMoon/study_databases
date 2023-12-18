@@ -59,14 +59,12 @@ collection_participants = participants()
 collection_participants_todos = participants_todos()
 
 # 정보 주입--------------------------------------------------------------------------------------------------------key
-# collection_todos_list.insert_many(list_todos)
-# collection_participants.insert_many(list_participants)
-# collection_participants_todos.insert_many(list_participants_todos)
+collection_todos_list.insert_many(list_todos)
+collection_participants.insert_many(list_participants)
+collection_participants_todos.insert_many(list_participants_todos)
 
 list_find = list(collection_todos_list.find())
 
-# collection_participants
-# collection_participants_todos
 while True :
 
     user_name = input("Input Your Name : ")
