@@ -2,7 +2,7 @@ from pymongo import MongoClient
 
 # mongoDB에 접속 ( 자원에 대한 class)
 mongoClient = MongoClient("mongodb://localhost:27017") #해당하는 mongoDB의 주소를 변수에 담아준다.
-
+# mongoClient = MongoClient("mongodb://192.168.0.92:27017") #해당하는 mongoDB의 주소를 변수에 담아준다.
 
 # database 생성 및 연결
 database = mongoClient["local"]
