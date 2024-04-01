@@ -34,3 +34,27 @@ SELECT COUNT(CustomerID) AS CNT, Country
 FROM Customers
 GROUP BY Country
 HAVING COUNT(CustomerID) >= 5;
+
+-- SUB쿼리 쓰는법 
+-- SUB쿼리는 SELECT,FROM 어디든 다 적용할 수 있다!
+-- SUB쿼리 내에 있는 데이터를 가져오려면 SUB_QUERY.(Data) 이런식으로 가져올 수 있음.
+SELECT SUB_ORDERS.CNT,SUB_ORDERS.CustomerID
+FROM (SELECT COUNT(CustomerID) AS CNT, CustomerID
+      FROM Orders
+      GROUP BY CustomerID
+      HAVING COUNT(CustomerID) >= 5
+      ORDER BY CustomerID ASC
+)AS SUB_ORDERS
+;
+
+-- IS NULL
+-- 결측치 처리방법
+-- IS NULL 사용시 결측값이 존재하는 데이터 표시.
+-- IS NOT NULL 사용시 결측값이 존재하지 않는 데이터 표시.
+-- LIMIT 사용시 a번째 중 b만큼 사용
+SELECT CustomerName, ContactName, Address
+FROM Customers
+WHERE Address IS NOT null
+ORDER BY CustomerName ASC
+LIMIT 5, 2
+;
