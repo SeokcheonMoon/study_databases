@@ -58,3 +58,32 @@ WHERE Address IS NOT null
 ORDER BY CustomerName ASC
 LIMIT 5, 2
 ;
+
+-- JOIN
+-- Products테이블에 Suppliers테이블을 합침
+SELECT * 
+FROM Products
+INNER JOIN Suppliers
+;
+
+
+-- JOIN된 테이블에 대한 조건
+-- ON을 사용하여 조건을 추가
+-- 조건 1: Suppliers테이블의 SupplierID과 Products의 SupplierID가 같은 조건
+-- ++ AND을 사용하여 조건 2를 더 붙임
+-- 조건 2: SupplierName가 ('Exotic Liquid','Tokyo Traders')인 조건
+SELECT * 
+FROM Products
+INNER JOIN Suppliers
+ON Suppliers.SupplierID = Products.SupplierID
+AND SupplierName IN ('Exotic Liquid','Tokyo Traders')
+;
+
+-- INNER JOIN에 INNER JOIN을 함.
+SELECT Categories.*
+FROM Products AS PRODUCT INNER JOIN Suppliers AS SUPPLIER
+	ON SUPPLIER.SupplierID = PRODUCT.SupplierID
+    AND SupplierName IN ('Exotic Liquid', 'Tokyo Traders')
+     INNER JOIN Categories
+        ON PRODUCT.CategoryID = Categories.CategoryID
+;
